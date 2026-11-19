@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f2e6">
+<title>每日一题 · 一年级上册</title>
+<style>
+:root{
+  --paper:#fbf7ee; --paper2:#f3ecdc; --ink:#2b2822; --ink2:#544e44;
+  --muted:#8a8172; --rule:#ddd1b8; --accent:#b8542f; --green:#4a7c59;
+  --serif:"Songti SC","STSong","SimSun",serif;
+  --sans:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:#efe9db; color:var(--ink); font-family:var(--sans);
+  font-size:17px; line-height:1.75; padding:14px 12px 40px;
+  min-height:100vh;
+}
+.wrap{max-width:600px;margin:0 auto}
+
+/* 顶部 */
+.top{text-align:center;padding:8px 0 16px}
+.top h1{
+  margin:0;font-family:var(--serif);font-size:22px;letter-spacing:.16em;font-weight:600;
+}
+.top .sub{font-size:11.5px;letter-spacing:.22em;color:var(--muted);margin-top:6px}
+.meta{
+  display:flex;justify-content:center;gap:14px;margin-top:12px;
+  font-size:12.5px;color:var(--muted);letter-spacing:.06em;flex-wrap:wrap;
+}
+.meta b{color:var(--accent);font-weight:600}
+
+/* 卡片 */
+.card{
+  background:var(--paper);border:1px solid var(--rule);border-radius:2px;
+  padding:20px 18px 18px;box-shadow:0 1px 2px rgba(80,60,30,.05),0 12px 30px -24px rgba(80,60,30,.5);
+  position:relative;
+}
+.tag{
+  display:inline-block;font-size:11px;letter-spacing:.16em;color:var(--accent);
+  border:1px solid #e0c3b2;background:#fdf3ec;padding:2px 8px;border-radius:2px;
+}
+.lv{font-size:11px;color:var(--accent);letter-spacing:3px;margin-left:9px;vertical-align:2px}
+.q{
+  font-family:var(--serif);font-size:21px;line-height:2;margin:14px 0 4px;
+  letter-spacing:.02em;white-space:pre-wrap;
+}
+.q em{font-style:normal;color:var(--accent);font-weight:600}
+.acts{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+button{
+  font-family:inherit;font-size:15px;padding:11px 20px;border-radius:3px;cursor:pointer;
+  border:1px solid var(--ink);background:transparent;color:var(--ink);
+  transition:background .18s,color .18s,transform .1s;flex:1 1 auto;min-width:120px;
+}
+button:active{transform:scale(.98)}
+button.primary{background:var(--ink);color:var(--paper)}
+button.ghost{border-color:var(--rule);color:var(--ink2)}
+.panel{
+  margin-top:16px;padding:14px 16px;border-radius:3px;font-size:15.5px;line-height:1.95;
+  animation:slide .25s ease both;
+}
+@keyframes slide{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.panel.hint{background:var(--paper2);border-left:3px solid var(--rule);color:var(--ink2)}
+.panel.answer{background:#f2f7f0;border-left:3px solid var(--green);color:#26402f}
+.panel .lbl{font-size:11px;letter-spacing:.2em;color:var(--muted);display:block;margin-bottom:4px}
+.panel .big{font-size:19px;font-weight:600;color:var(--green)}
+.hidden{display:none}
+
+/* 家长讲解 */
+details.why{
+  margin-top:18px;border-top:1px dashed var(--rule);padding-top:14px;
+}
+details.why summary{
+  cursor:pointer;font-size:13px;letter-spacing:.1em;color:var(--muted);list-style:none;
+  display:flex;align-items:center;gap:8px;
+}
+details.why summary::-webkit-details-marker{display:none}
+details.why summary::before{content:"▸";font-size:11px;transition:transform .2s}
+details.why[open] summary::before{transform:rotate(90deg)}
+details.why .body{margin-top:10px;font-size:15px;line-height:1.95;color:var(--ink2)}
+details.why .body p{margin:0 0 8px}
+
+/* 往期 */
+.past{margin-top:30px}
+.past h2{
+  font-size:12px;letter-spacing:.26em;color:var(--muted);font-weight:400;
+  border-bottom:1px solid var(--rule);padding-bottom:8px;margin:0 0 4px;
+}
+details.item{border-bottom:1px solid #e8dec8}
+details.item>summary{
+  cursor:pointer;list-style:none;padding:13px 2px;display:flex;gap:10px;align-items:baseline;
+}
+details.item>summary::-webkit-details-marker{display:none}
+details.item .no{font-size:11px;color:var(--muted);min-width:34px;font-variant-numeric:tabular-nums}
+details.item .txt{flex:1;font-size:15px;line-height:1.6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+details.item .date{font-size:11px;color:var(--muted);min-width:48px;text-align:right}
+details.item .inner{padding:2px 2px 16px 46px;font-size:15px;line-height:1.95;color:var(--ink2)}
+details.item .inner .a{color:var(--green);font-weight:600}
+details.item .inner .lbl{font-size:11px;letter-spacing:.18em;color:var(--muted);display:block;margin:10px 0 2px}
+
+.foot{text-align:center;font-size:11.5px;color:var(--muted);margin-top:34px;line-height:2}
+.empty{padding:26px 4px;color:var(--muted);font-size:14px}
+
+@media (max-width:380px){
+  .q{font-size:19px}
+  button{font-size:14px;padding:10px 14px}
+}
+@media print{
+  body{background:#fff;padding:0}
+  .acts,.top .sub,.past,.foot{display:none!important}
+  .card{border:0;box-shadow:none;padding:0}
+  .panel{background:#fff;border-left:0;border-top:1px solid #ccc}
+  details.why{display:block}
+  details.why .body{display:block}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <h1>每日一题</h1>
+    <div class="sub">苏教版 · 一年级上册 · 奥数思维每日一题</div>
+    <div class="meta">
+      <span id="m-date">—</span>
+      <span>第 <b id="m-day">—</b> 天</span>
+      <span id="m-tag"></span>
+    </div>
+  </div>
+
+  <div class="card" id="card"></div>
+
+  <div class="past">
+    <h2>往 期</h2>
+    <div id="past"></div>
+  </div>
+
+  <div class="foot">难度递进 · 先画图，再找规律，最后才列式。<br>答案默认收起，先让孩子自己画一画、说一说。</div>
+</div>
+
+<script>
+/* ============================================================
+   题单：按顺序排，每天自动推一道（跳过周六周日）
+   加题只需往 QS 末尾追加，日期会自动顺延
+   ============================================================ */
+var START = new Date(2026, 10, 17);   // 2026-11-17（周一）起算
+
+var QS = [
+  { lv:2, tag:"间隔 · 楼梯", q:"小明从 1 楼走到 3 楼用了 2 分钟。\n照这样算，他从 1 楼走到 6 楼\n要用几分钟？",
+    hint:"1 楼到 3 楼，其实只走了几层楼梯？先算每层要几分钟。",
+    a:"5 分钟", why:"1 楼到 3 楼走了 2 层，用 2 分钟，所以每层 1 分钟。1 楼到 6 楼要走 5 层，就是 5 分钟。关键：楼层数比楼梯层数多 1。" },
+
+  { lv:2, tag:"间隔 · 锯木头", q:"一根木头锯成 4 段，\n每锯一次要 2 分钟。\n一共要锯几分钟？",
+    hint:"锯成 4 段，要锯几次？画一画。",
+    a:"6 分钟", why:"锯 1 次得 2 段，锯 2 次得 3 段，锯 3 次才得 4 段。3 次 × 2 分钟 = 6 分钟。和剪绳子一样：次数比段数少 1。" },
+
+  { lv:3, tag:"还原 · 一半", q:"妈妈买了一些糖。\n第一天吃掉一半，\n第二天吃掉剩下的一半，\n最后还剩 3 颗。\n原来有多少颗？",
+    hint:"倒着推：最后剩 3 颗，那第二天吃之前有几颗？",
+    a:"12 颗", why:"倒推：剩 3 颗 → 第二天吃之前是 3×2=6 颗 → 第一天吃之前是 6×2=12 颗。凡是“吃了一半”，就用乘 2 往回推。" },
+
+  { lv:2, tag:"年龄 · 差不变", q:"哥哥今年 8 岁，弟弟 5 岁。\n5 年以后，哥哥比弟弟大几岁？",
+    hint:"两个人一起长大，差会不会变？",
+    a:"3 岁", why:"今年差 3 岁，5 年后两人都长 5 岁，差还是 3 岁。年龄差永远不变，这是年龄问题的第一把钥匙。" },
+
+  { lv:2, tag:"排队 · 三次计数", q:"一队小朋友排队。\n小明从前数排第 5，\n从后数排第 6。\n这一队一共有多少人？",
+    hint:"小明被数了两次，要减掉多算的那个“1”。",
+    a:"10 人", why:"5 + 6 - 1 = 10。前面 4 人 + 小明自己 + 后面 5 人 = 10 人。让孩子画一排圆圈验证，一眼就看懂为什么要减 1。" },
+
+  { lv:3, tag:"等量代换", q:"1 个西瓜换 2 个菠萝，\n1 个菠萝换 3 个苹果。\n1 个西瓜能换几个苹果？",
+    hint:"画图：1 个西瓜旁边画 2 个菠萝，每个菠萝再换成 3 个苹果。",
+    a:"6 个", why:"2 个菠萝，每个值 3 个苹果，3+3=6。等量代换就是把“换”一步步画出来，别急着列式。" },
+
+  { lv:2, tag:"图形计数", q:"一条直线上有 4 个点。\n以这些点为端点，\n一共能数出多少条线段？",
+    hint:"从左往右，先数相邻的，再数隔一个的，最后数隔两个的。",
+    a:"6 条", why:"相邻 3 条 + 隔 1 个点的 2 条 + 隔 2 个点的 1 条 = 3+2+1=6 条。按顺序数，才不会重复或遗漏。" },
+
+  { lv:3, tag:"找规律 · 差在变", q:"1、2、4、7、11、（  ）",
+    hint:"看看相邻两个数差多少，差本身有没有规律？",
+    a:"16", why:"相邻的差是 1、2、3、4，下一个差是 5，所以 11+5=16。规律题要先算“差”，差有规律就是二阶等差。" },
+
+  { lv:2, tag:"周期", q:"把珠子按“红、黄、蓝、红、黄、蓝……”\n的顺序一颗一颗串起来。\n第 10 颗是什么颜色？",
+    hint:"3 颗一组，第 9 颗刚好是第几组的最后一颗？",
+    a:"红色", why:"每 3 颗一组，9 颗正好 3 组，第 10 颗就是第 4 组的第 1 颗，是红色。周期问题先找“几个一组”。" },
+
+  { lv:3, tag:"还原 · 倒推", q:"树上有一些鸟。\n飞走一半以后，又飞来 3 只，\n现在有 7 只。\n原来有几只？",
+    hint:"倒着看：现在的 7 只里，有 3 只是飞来的。",
+    a:"8 只", why:"先退掉飞来的 3 只：7-3=4 只，这 4 只是飞走一半后剩下的，所以原来是 4×2=8 只。" },
+
+  { lv:3, tag:"鸡兔同笼 · 枚举", q:"笼子里有鸡和兔共 5 只，\n一共有 14 条腿。\n鸡有几只？兔有几只？",
+    hint:"一只鸡 2 条腿，一只兔 4 条腿。一个一个试：1 只兔呢？2 只兔呢？",
+    a:"兔 2 只，鸡 3 只", why:"假设全是鸡：5×2=10 条腿，比 14 少 4 条。每把一只鸡换成兔，多 2 条腿，所以要换 2 只：兔 2 只、鸡 3 只。一年级用枚举或画图都行。" },
+
+  { lv:2, tag:"逻辑 · 排序", q:"小华比小明高，\n小明比小红高，\n小红比小刚高。\n谁最高？谁最矮？",
+    hint:"画四个台阶，把名字填上去。",
+    a:"小华最高，小刚最矮", why:"小华 > 小明 > 小红 > 小刚。这种“比”可以一层层传下去，画成台阶最清楚。" },
+
+  { lv:2, tag:"多余条件", q:"小明有 5 个红球、3 个蓝球。\n送给小红 2 个红球。\n还剩几个红球？",
+    hint:"题目里有一个数根本用不上，是哪个？",
+    a:"3 个", why:"5-2=3。蓝球的 3 个是干扰条件，完全用不上。读题时先问一句“问的是什么颜色”，能避开很多坑。" },
+
+  { lv:3, tag:"逆向 · 给完还多", q:"小明给小红 2 本书以后，\n小明还比小红多 1 本。\n小明原来比小红多几本？",
+    hint:"小明少了 2 本，小红多了 2 本，一来一去差了几本？",
+    a:"5 本", why:"给的过程中，差距缩小了 2+2=4 本，还多 1 本，所以原来多 4+1=5 本。可以举例验证：小明 7 本、小红 2 本。" },
+
+  { lv:3, tag:"排列 · 有序思考", q:"用 1、2、3 三张数字卡片，\n能摆出多少个不同的两位数？\n其中最大的是几？",
+    hint:"先固定十位是 1，能摆几个？再试 2 和 3。",
+    a:"6 个，最大 32", why:"十位是 1：12、13；十位是 2：21、23；十位是 3：31、32。有序地摆，一个不漏。最大的是 32。" },
+
+  { lv:3, tag:"间隔 · 围成圈", q:"10 个小朋友围成一个圆圈，\n每两个小朋友之间放 1 个气球。\n一共要放几个气球？",
+    hint:"围成圈时，第一个和最后一个之间也有间隔。",
+    a:"10 个", why:"排成一排时是 10-1=9 个间隔，但围成圈首尾相接，间隔数和人数一样多，是 10 个。" },
+
+  { lv:3, tag:"对折", q:"一根绳子对折两次后，\n量得长 3 米。\n这根绳子原来长几米？",
+    hint:"对折一次变几层？对折两次呢？",
+    a:"12 米", why:"对折一次是 2 层，两次是 4 层。展开就是 4 个 3 米：3×4=12 米。这类题一定要先想“层数”。" },
+
+  { lv:3, tag:"等量代换 · 两级", q:"1 只鸡换 2 只鸭，\n1 只鸭换 3 只鸽子。\n1 只鸡能换几只鸽子？",
+    hint:"先换鸭，再换鸽子，画两排图。",
+    a:"6 只", why:"2 只鸭，每只值 3 只鸽子：3+3=6。和西瓜菠萝苹果那道是同一类题，换个情境再练一次。" },
+
+  { lv:3, tag:"周期 · 星期", q:"今天是星期四。\n再过 10 天是星期几？",
+    hint:"7 天一个循环。先看 10 天里有几个 7 天，还剩几天。",
+    a:"星期日", why:"10 = 7 + 3。过 7 天还是星期四，再过 3 天就是星期五、星期六、星期日。" },
+
+  { lv:3, tag:"图形计数", q:"一个三角形，\n从顶点向底边画一条线，\n把它分成两个小三角形。\n现在图里一共有几个三角形？",
+    hint:"除了两个小的，还有一个“大的”——原来那个。",
+    a:"3 个", why:"两个小三角形 + 合起来的大三角形 = 3 个。数图形要“先数小的，再数拼起来的”，不然一定会漏。" },
+
+  { lv:3, tag:"小棒 · 分享边", q:"用 10 根同样长的小棒，\n能摆出 3 个正方形吗？",
+    hint:"3 个正方形排成一排，有几条边是共用的？",
+    a:"能", why:"分开摆要 4×3=12 根。排成一排，相邻两个共用一条边，省下 2 根，正好 10 根。让孩子动手摆一摆最有说服力。" },
+
+  { lv:3, tag:"找规律 · 双数列", q:"2、5、4、7、6、9、（  ）、（  ）",
+    hint:"奇数位和偶数位分开看：第 1、3、5 个数是什么规律？",
+    a:"8、11", why:"奇数位是 2、4、6、8（每次+2），偶数位是 5、7、9、11（每次+2）。像两根线交叉前进。" },
+
+  { lv:3, tag:"等式 · 有序分组", q:"把 1、2、3、4 填进\n□ + □ = □ + □，\n使等式成立。\n该怎么填？",
+    hint:"两边要一样大。试试把最大的和最小的放在一起。",
+    a:"1+4 = 2+3", why:"1+4=5，2+3=5。秘诀是“大配小”：最大的配最小的，剩下的两个配一起，这样两边才相等。" },
+
+  { lv:3, tag:"开放题 · 剪角", q:"一个正方形，\n剪掉一个角以后，\n还剩几个角？",
+    hint:"这条线可以从顶点剪到顶点，也可以只剪到边上。多试几次。",
+    a:"可能是 3 个、4 个或 5 个", why:"沿对角线剪：剩 3 个角；从一个顶点剪到对边的中间：剩 4 个角；只剪掉角上的一小块：剩 5 个角。三种都对，关键是让孩子动手剪、再解释。" },
+
+  { lv:3, tag:"排队 · 夹在中间", q:"12 个小朋友排队。\n小明从前数第 5，\n小红从后数第 4。\n小明和小红之间有几人？",
+    hint:"先算小红从前面数是第几。",
+    a:"3 人", why:"小红从前数是 12-4+1=9。小明第 5、小红第 9，中间的 6、7、8 号就是 3 人。也可以 12-5-4=3。" },
+
+  { lv:3, tag:"日期", q:"今天是 11 月 19 日。\n再过 12 天是几月几日？",
+    hint:"11 月一共有 30 天。19 加 12 超过 30 了吗？",
+    a:"12 月 1 日", why:"19+12=31，11 月只有 30 天，所以第 31 天就是 12 月 1 日。跨月时先看这个月还剩几天。" },
+
+  { lv:3, tag:"逆向 · 凑数", q:"□ + □ = 9，\n两个加数相差 1。\n这两个数是几和几？",
+    hint:"两个数差不多大，先想 9 的一半是多少。",
+    a:"4 和 5", why:"9 分成两个差不多的数，就是 4 和 5，相差正好 1。也可以试：4+5=9，5-4=1，两个条件都满足。" },
+
+  { lv:3, tag:"逻辑 · 排除", q:"小明、小红、小刚三人赛跑。\n小明不是第一名，\n小红既不是第一名也不是最后一名。\n谁是第一名？",
+    hint:"先定小红：她只能是第几名？",
+    a:"小刚", why:"小红不是第一也不是最后，只能是第二。小明不是第一，那只能是第三。剩下的第一就是小刚。" },
+
+  { lv:3, tag:"综合 · 楼梯进阶", q:"小明从 1 楼走到 4 楼用了 3 分钟。\n照这样的速度，\n他从 1 楼走到 7 楼要几分钟？",
+    hint:"先算每层用几分钟，再数 1 楼到 7 楼有几层。",
+    a:"6 分钟", why:"1 到 4 楼走 3 层，用 3 分钟，每层 1 分钟。1 到 7 楼走 6 层，所以 6 分钟。这类题永远先算“层数”。" }
+];
+
+/* ---------------- 日期与索引 ---------------- */
+function ymd(d){ return d.getFullYear()+" 年 "+(d.getMonth()+1)+" 月 "+d.getDate()+" 日"; }
+function isWeekend(d){ var w=d.getDay(); return w===0||w===6; }
+
+// 从 START 到 today（含）之间，有多少个工作日
+function schoolDayIndex(today){
+  var a = new Date(START.getFullYear(), START.getMonth(), START.getDate());
+  var b = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  if (b < a) return 0;
+  var n = 0, d = new Date(a);
+  while (d <= b) {
+    if (!isWeekend(d)) n++;
+    d.setDate(d.getDate()+1);
+  }
+  return Math.max(0, n-1);
+}
+
+// 第 index 个工作日的具体日期
+function dateOfIndex(index){
+  var d = new Date(START), n = 0;
+  while (true) {
+    if (!isWeekend(d)) {
+      if (n === index) return new Date(d);
+      n++;
+    }
+    d.setDate(d.getDate()+1);
+  }
+}
+
+function shortDate(d){ return (d.getMonth()+1)+"/"+d.getDate(); }
+
+/* ---------------- 渲染 ---------------- */
+var today = new Date();
+var idx = Math.min(schoolDayIndex(today), QS.length-1);
+var cur = QS[idx];
+var curDate = dateOfIndex(idx);
+
+document.getElementById("m-date").textContent = ymd(today);
+document.getElementById("m-day").textContent = idx+1;
+document.getElementById("m-tag").textContent = cur.tag;
+
+var card = document.getElementById("card");
+card.innerHTML =
+  '<span class="tag">' + cur.tag + '</span>' +
+  '<span class="lv">' + "★★★".slice(0, cur.lv) + "☆☆☆".slice(0, 3 - cur.lv) + '</span>' +
+  '<div class="q">' + cur.q.replace(/\n/g,"<br>") + '</div>' +
+  '<div class="acts">' +
+    '<button class="ghost" id="b-hint" type="button">给点提示</button>' +
+    '<button class="primary" id="b-ans" type="button">看答案</button>' +
+  '</div>' +
+  '<div class="panel hint hidden" id="p-hint"><span class="lbl">提 示</span>' + cur.hint + '</div>' +
+  '<div class="panel answer hidden" id="p-ans"><span class="lbl">答 案</span><span class="big">' + cur.a + '</span></div>' +
+  '<details class="why"><summary>家长讲解（点开看怎么说）</summary><div class="body"><p>' + cur.why + '</p></div></details>';
+
+var ph = document.getElementById("p-hint");
+var pa = document.getElementById("p-ans");
+document.getElementById("b-hint").onclick = function(){
+  ph.classList.toggle("hidden");
+  this.textContent = ph.classList.contains("hidden") ? "给点提示" : "收起提示";
+};
+document.getElementById("b-ans").onclick = function(){
+  pa.classList.toggle("hidden");
+  this.textContent = pa.classList.contains("hidden") ? "看答案" : "收起答案";
+};
+
+/* 往期 */
+var past = document.getElementById("past");
+if (idx === 0) {
+  past.innerHTML = '<div class="empty">今天是第一天，之前的题目还没有。</div>';
+} else {
+  var html = "";
+  for (var i = idx-1; i >= 0; i--) {
+    var it = QS[i], d = dateOfIndex(i);
+    var first = it.q.split("\n")[0];
+    html += '<details class="item"><summary>' +
+      '<span class="no">第' + (i+1) + '天</span>' +
+      '<span class="txt">' + first + '</span>' +
+      '<span class="date">' + shortDate(d) + '</span>' +
+      '</summary><div class="inner">' +
+      '<span class="lbl">题 目</span>' + it.q.replace(/\n/g,"<br>") +
+      '<span class="lbl">答 案</span><span class="a">' + it.a + '</span>' +
+      '<span class="lbl">讲 解</span>' + it.why +
+      '</div></details>';
+  }
+  past.innerHTML = html;
+}
+</script>
+</body>
+</html>
