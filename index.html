@@ -172,198 +172,221 @@ details.item .inner .lbl{font-size:11px;letter-spacing:.18em;color:var(--muted);
 var START = new Date(2026, 10, 17);   // 2026-11-17（周一）起算
 
 var QS = [
-  { lv:2, tag:"间隔 · 楼梯", q:"小明从 1 楼走到 3 楼用了 2 分钟。\n照这样算，他从 1 楼走到 6 楼\n要用几分钟？",
+{ lv:2, tag:"间隔 · 楼梯", q:"小明从 1 楼走到 3 楼用了 2 分钟。\n照这样算，他从 1 楼走到 6 楼\n要用几分钟？",
     hint:"1 楼到 3 楼，其实只走了几层楼梯？先算每层要几分钟。",
     a:"5 分钟", why:"1 楼到 3 楼走了 2 层，用 2 分钟，所以每层 1 分钟。1 楼到 6 楼要走 5 层，就是 5 分钟。关键：楼层数比楼梯层数多 1。" },
 
-  { lv:2, tag:"间隔 · 锯木头", q:"一根木头锯成 4 段，\n每锯一次要 2 分钟。\n一共要锯几分钟？",
-    hint:"锯成 4 段，要锯几次？画一画。",
-    a:"6 分钟", why:"锯 1 次得 2 段，锯 2 次得 3 段，锯 3 次才得 4 段。3 次 × 2 分钟 = 6 分钟。和剪绳子一样：次数比段数少 1。" },
+  { lv:1, tag:"图形算式", q:"两个 ○ 相加等于 8。○ 代表几？",
+    hint:"想一想：几加几等于 8，两个数要一样。",
+    a:"○ = 4", why:"4+4=8，所以 ○ 代表 4。",
+    svg:'<svg viewBox="0 0 320 110" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><circle cx="70" cy="55" r="22" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="112" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">+</text><circle cx="154" cy="55" r="22" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="196" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">=</text><text x="232" y="66" font-size="30" text-anchor="middle" fill="#C25A3A" font-weight="700" font-family="inherit">8</text></svg>' },
 
-  { lv:3, tag:"还原 · 一半", q:"妈妈买了一些糖。\n第一天吃掉一半，\n第二天吃掉剩下的一半，\n最后还剩 3 颗。\n原来有多少颗？",
+{ lv:3, tag:"还原 · 一半", q:"妈妈买了一些糖。\n第一天吃掉一半，\n第二天吃掉剩下的一半，\n最后还剩 3 颗。\n原来有多少颗？",
     hint:"倒着推：最后剩 3 颗，那第二天吃之前有几颗？",
     a:"12 颗", why:"倒推：剩 3 颗 → 第二天吃之前是 3×2=6 颗 → 第一天吃之前是 6×2=12 颗。凡是“吃了一半”，就用乘 2 往回推。" },
 
-  { lv:2, tag:"年龄 · 差不变", q:"哥哥今年 8 岁，弟弟 5 岁。\n5 年以后，哥哥比弟弟大几岁？",
-    hint:"两个人一起长大，差会不会变？",
-    a:"3 岁", why:"今年差 3 岁，5 年后两人都长 5 岁，差还是 3 岁。年龄差永远不变，这是年龄问题的第一把钥匙。" },
+  { lv:1, tag:"图形算式", q:"○ 代表 3。○ + ○ = △，△ 代表几？",
+    hint:"两个 3 加起来是多少？",
+    a:"△ = 6", why:"3+3=6。同样的图形表示同样的数。",
+    svg:'<svg viewBox="0 0 340 110" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><circle cx="60" cy="55" r="22" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="100" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">+</text><circle cx="140" cy="55" r="22" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="180" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">=</text><path d="M225 29 L247 68 L202 68 Z" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="280" y="66" font-size="18" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">○=3</text></svg>' },
 
-  { lv:2, tag:"排队 · 三次计数", q:"一队小朋友排队。\n小明从前数排第 5，\n从后数排第 6。\n这一队一共有多少人？",
+{ lv:2, tag:"排队 · 三次计数", q:"一队小朋友排队。\n小明从前数排第 5，\n从后数排第 6。\n这一队一共有多少人？",
     hint:"小明被数了两次，要减掉多算的那个“1”。",
     a:"10 人", why:"5 + 6 - 1 = 10。前面 4 人 + 小明自己 + 后面 5 人 = 10 人。让孩子画一排圆圈验证，一眼就看懂为什么要减 1。" },
 
-  { lv:3, tag:"等量代换", q:"1 个西瓜换 2 个菠萝，\n1 个菠萝换 3 个苹果。\n1 个西瓜能换几个苹果？",
-    hint:"画图：1 个西瓜旁边画 2 个菠萝，每个菠萝再换成 3 个苹果。",
-    a:"6 个", why:"2 个菠萝，每个值 3 个苹果，3+3=6。等量代换就是把“换”一步步画出来，别急着列式。" },
+  { lv:2, tag:"图形算式", q:"三个 □ 加起来等于 6。□ + ○ = 5。□ 和 ○ 各是几？",
+    hint:"先想：哪三个一样的数加起来是 6？",
+    a:"□ = 2，○ = 3", why:"2+2+2=6，所以 □ 是 2；2+3=5，所以 ○ 是 3。",
+    svg:'<svg viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><rect x="28" y="33" width="44" height="44" rx="3" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="95" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">+</text><rect x="118" y="33" width="44" height="44" rx="3" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="185" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">+</text><rect x="208" y="33" width="44" height="44" rx="3" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="275" y="66" font-size="24" text-anchor="middle" fill="#C25A3A" font-weight="700" font-family="inherit">=6</text></svg>' },
 
-  { lv:2, tag:"图形计数", q:"一条直线上有 4 个点。\n以这些点为端点，\n一共能数出多少条线段？",
+{ lv:2, tag:"图形计数", q:"一条直线上有 4 个点。\n以这些点为端点，\n一共能数出多少条线段？",
     hint:"从左往右，先数相邻的，再数隔一个的，最后数隔两个的。",
     a:"6 条", why:"相邻 3 条 + 隔 1 个点的 2 条 + 隔 2 个点的 1 条 = 3+2+1=6 条。按顺序数，才不会重复或遗漏。" },
 
-  { lv:3, tag:"找规律 · 差在变", q:"1、2、4、7、11、（  ）",
-    hint:"看看相邻两个数差多少，差本身有没有规律？",
-    a:"16", why:"相邻的差是 1、2、3、4，下一个差是 5，所以 11+5=16。规律题要先算“差”，差有规律就是二阶等差。" },
+  { lv:3, tag:"图形算式", q:"△ + ○ = 8，△ − ○ = 2。△ 和 ○ 各是几？",
+    hint:"两个数加起来 8，相差 2，它们应该挨得很近。",
+    a:"△ = 5，○ = 3", why:"5+3=8，5−3=2。也可以试：4 和 4 加起来是 8，但要差 2，就得一个加 1、一个减 1。",
+    svg:'<svg viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><path d="M60 29 L82 68 L37 68 Z" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="105" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">+</text><circle cx="150" cy="55" r="22" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="195" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">=</text><text x="230" y="66" font-size="30" text-anchor="middle" fill="#C25A3A" font-weight="700" font-family="inherit">8</text></svg>' },
 
-  { lv:2, tag:"周期", q:"把珠子按“红、黄、蓝、红、黄、蓝……”\n的顺序一颗一颗串起来。\n第 10 颗是什么颜色？",
+{ lv:2, tag:"周期", q:"把珠子按“红、黄、蓝、红、黄、蓝……”\n的顺序一颗一颗串起来。\n第 10 颗是什么颜色？",
     hint:"3 颗一组，第 9 颗刚好是第几组的最后一颗？",
     a:"红色", why:"每 3 颗一组，9 颗正好 3 组，第 10 颗就是第 4 组的第 1 颗，是红色。周期问题先找“几个一组”。" },
 
-  { lv:3, tag:"还原 · 倒推", q:"树上有一些鸟。\n飞走一半以后，又飞来 3 只，\n现在有 7 只。\n原来有几只？",
-    hint:"倒着看：现在的 7 只里，有 3 只是飞来的。",
-    a:"8 只", why:"先退掉飞来的 3 只：7-3=4 只，这 4 只是飞走一半后剩下的，所以原来是 4×2=8 只。" },
+  { lv:3, tag:"图形算式", q:"□ + ○ = 9，□ − ○ = 1。□ 和 ○ 各是几？",
+    hint:"两个数相差 1，加起来 9，就是挨着的两个数。",
+    a:"□ = 5，○ = 4", why:"5+4=9，5−4=1。9 分成两个相邻的数，只能是 4 和 5。",
+    svg:'<svg viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><rect x="38" y="33" width="44" height="44" rx="3" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="105" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">+</text><circle cx="150" cy="55" r="22" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="195" y="66" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">=</text><text x="230" y="66" font-size="30" text-anchor="middle" fill="#C25A3A" font-weight="700" font-family="inherit">9</text></svg>' },
 
-  { lv:3, tag:"鸡兔同笼 · 枚举", q:"笼子里有鸡和兔共 5 只，\n一共有 14 条腿。\n鸡有几只？兔有几只？",
+{ lv:3, tag:"鸡兔同笼 · 枚举", q:"笼子里有鸡和兔共 5 只，\n一共有 14 条腿。\n鸡有几只？兔有几只？",
     hint:"一只鸡 2 条腿，一只兔 4 条腿。一个一个试：1 只兔呢？2 只兔呢？",
     a:"兔 2 只，鸡 3 只", why:"假设全是鸡：5×2=10 条腿，比 14 少 4 条。每把一只鸡换成兔，多 2 条腿，所以要换 2 只：兔 2 只、鸡 3 只。一年级用枚举或画图都行。" },
 
-  { lv:2, tag:"逻辑 · 排序", q:"小华比小明高，\n小明比小红高，\n小红比小刚高。\n谁最高？谁最矮？",
-    hint:"画四个台阶，把名字填上去。",
-    a:"小华最高，小刚最矮", why:"小华 > 小明 > 小红 > 小刚。这种“比”可以一层层传下去，画成台阶最清楚。" },
+  { lv:2, tag:"等量代换", q:"1 个苹果换 2 个橘子，1 个橘子换 3 颗糖。1 个苹果能换几颗糖？",
+    hint:"先换成橘子，再把每个橘子换成糖。",
+    a:"6 颗", why:"2 个橘子，每个值 3 颗糖：3+3=6。",
+    svg:'<svg viewBox="0 0 360 120" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><circle cx="70" cy="60" r="22" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="115" y="70" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">=</text><circle cx="155" cy="60" r="16" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><circle cx="190" cy="60" r="16" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="240" y="70" font-size="16" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">每个</text><text x="240" y="95" font-size="16" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">换3颗糖</text></svg>' },
 
-  { lv:2, tag:"多余条件", q:"小明有 5 个红球、3 个蓝球。\n送给小红 2 个红球。\n还剩几个红球？",
+{ lv:2, tag:"多余条件", q:"小明有 5 个红球、3 个蓝球。\n送给小红 2 个红球。\n还剩几个红球？",
     hint:"题目里有一个数根本用不上，是哪个？",
     a:"3 个", why:"5-2=3。蓝球的 3 个是干扰条件，完全用不上。读题时先问一句“问的是什么颜色”，能避开很多坑。" },
 
-  { lv:3, tag:"逆向 · 给完还多", q:"小明给小红 2 本书以后，\n小明还比小红多 1 本。\n小明原来比小红多几本？",
-    hint:"小明少了 2 本，小红多了 2 本，一来一去差了几本？",
-    a:"5 本", why:"给的过程中，差距缩小了 2+2=4 本，还多 1 本，所以原来多 4+1=5 本。可以举例验证：小明 7 本、小红 2 本。" },
+  { lv:3, tag:"天平 · 代换", q:"天平平衡：2 个方块 = 1 个圆，3 个圆 = 1 个三角。1 个三角等于几个方块？",
+    hint:"一层一层换：先算 1 个三角值几个圆。",
+    a:"6 个方块", why:"3 个圆，每个圆值 2 个方块：2+2+2=6。",
+    svg:'<svg viewBox="0 0 360 120" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><rect x="42" y="42" width="35" height="35" rx="3" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><rect x="102" y="42" width="35" height="35" rx="3" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="175" y="70" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">=</text><circle cx="225" cy="60" r="20" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="285" y="70" font-size="16" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">= 3 个</text></svg>' },
 
-  { lv:3, tag:"排列 · 有序思考", q:"用 1、2、3 三张数字卡片，\n能摆出多少个不同的两位数？\n其中最大的是几？",
+{ lv:3, tag:"排列 · 有序思考", q:"用 1、2、3 三张数字卡片，\n能摆出多少个不同的两位数？\n其中最大的是几？",
     hint:"先固定十位是 1，能摆几个？再试 2 和 3。",
     a:"6 个，最大 32", why:"十位是 1：12、13；十位是 2：21、23；十位是 3：31、32。有序地摆，一个不漏。最大的是 32。" },
 
-  { lv:3, tag:"间隔 · 围成圈", q:"10 个小朋友围成一个圆圈，\n每两个小朋友之间放 1 个气球。\n一共要放几个气球？",
-    hint:"围成圈时，第一个和最后一个之间也有间隔。",
-    a:"10 个", why:"排成一排时是 10-1=9 个间隔，但围成圈首尾相接，间隔数和人数一样多，是 10 个。" },
+  { lv:2, tag:"数图形 · 线段", q:"一条直线上有 4 个点。以这些点为端点，一共能数出几条线段？",
+    hint:"先数相邻的，再数隔一个的，最后数隔两个的。",
+    a:"6 条", why:"3+2+1=6：相邻 3 条、隔一个 2 条、隔两个 1 条。",
+    svg:'<svg viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><line x1="60" y1="70" x2="300" y2="70" stroke="#3B322B" stroke-width="2.4"/><circle cx="60" cy="70" r="6" fill="#C25A3A"/><circle cx="140" cy="70" r="6" fill="#C25A3A"/><circle cx="220" cy="70" r="6" fill="#C25A3A"/><circle cx="300" cy="70" r="6" fill="#C25A3A"/></svg>' },
 
-  { lv:3, tag:"对折", q:"一根绳子对折两次后，\n量得长 3 米。\n这根绳子原来长几米？",
+{ lv:3, tag:"对折", q:"一根绳子对折两次后，\n量得长 3 米。\n这根绳子原来长几米？",
     hint:"对折一次变几层？对折两次呢？",
     a:"12 米", why:"对折一次是 2 层，两次是 4 层。展开就是 4 个 3 米：3×4=12 米。这类题一定要先想“层数”。" },
 
-  { lv:3, tag:"等量代换 · 两级", q:"1 只鸡换 2 只鸭，\n1 只鸭换 3 只鸽子。\n1 只鸡能换几只鸽子？",
-    hint:"先换鸭，再换鸽子，画两排图。",
-    a:"6 只", why:"2 只鸭，每只值 3 只鸽子：3+3=6。和西瓜菠萝苹果那道是同一类题，换个情境再练一次。" },
+  { lv:3, tag:"数图形 · 线段", q:"一条直线上有 5 个点。以这些点为端点，一共能数出几条线段？",
+    hint:"按“隔几个点”分类数，别跳着数。",
+    a:"10 条", why:"4+3+2+1=10。",
+    svg:'<svg viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><line x1="40" y1="70" x2="320" y2="70" stroke="#3B322B" stroke-width="2.4"/><circle cx="40" cy="70" r="6" fill="#C25A3A"/><circle cx="110" cy="70" r="6" fill="#C25A3A"/><circle cx="180" cy="70" r="6" fill="#C25A3A"/><circle cx="250" cy="70" r="6" fill="#C25A3A"/><circle cx="320" cy="70" r="6" fill="#C25A3A"/></svg>' },
 
-  { lv:3, tag:"周期 · 星期", q:"今天是星期四。\n再过 10 天是星期几？",
+{ lv:3, tag:"周期 · 星期", q:"今天是星期四。\n再过 10 天是星期几？",
     hint:"7 天一个循环。先看 10 天里有几个 7 天，还剩几天。",
     a:"星期日", why:"10 = 7 + 3。过 7 天还是星期四，再过 3 天就是星期五、星期六、星期日。" },
 
-  { lv:3, tag:"图形计数", q:"一个三角形，\n从顶点向底边画一条线，\n把它分成两个小三角形。\n现在图里一共有几个三角形？",
-    hint:"除了两个小的，还有一个“大的”——原来那个。",
-    a:"3 个", why:"两个小三角形 + 合起来的大三角形 = 3 个。数图形要“先数小的，再数拼起来的”，不然一定会漏。" },
+  { lv:3, tag:"数图形 · 三角形", q:"下图里一共有多少个三角形？",
+    hint:"小的数完，再数两个小的拼成的大三角形。",
+    a:"8 个", why:"4 个小的 + 4 个大的（两条边 + 一条对角线）= 8。",
+    svg:'<svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><rect x="70" y="30" width="160" height="160" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.4"/><path d="M70 30 L230 190 M230 30 L70 190" stroke="#3B322B" stroke-width="2.4" fill="none"/></svg>' },
 
-  { lv:3, tag:"小棒 · 分享边", q:"用 10 根同样长的小棒，\n能摆出 3 个正方形吗？",
+{ lv:3, tag:"小棒 · 分享边", q:"用 10 根同样长的小棒，\n能摆出 3 个正方形吗？",
     hint:"3 个正方形排成一排，有几条边是共用的？",
     a:"能", why:"分开摆要 4×3=12 根。排成一排，相邻两个共用一条边，省下 2 根，正好 10 根。让孩子动手摆一摆最有说服力。" },
 
-  { lv:3, tag:"找规律 · 双数列", q:"2、5、4、7、6、9、（  ）、（  ）",
-    hint:"奇数位和偶数位分开看：第 1、3、5 个数是什么规律？",
-    a:"8、11", why:"奇数位是 2、4、6、8（每次+2），偶数位是 5、7、9、11（每次+2）。像两根线交叉前进。" },
+  { lv:2, tag:"数图形 · 三角形", q:"一个三角形，从顶点向底边画一条线，把它分成两个小三角形。图里一共有几个三角形？",
+    hint:"除了两个小的，还有原来那个大的。",
+    a:"3 个", why:"2 个小的 + 1 个大的 = 3 个。",
+    svg:'<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><path d="M150 30 L40 180 L260 180 Z" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.4"/><line x1="150" y1="30" x2="150" y2="180" stroke="#3B322B" stroke-width="2.4"/></svg>' },
 
-  { lv:3, tag:"等式 · 有序分组", q:"把 1、2、3、4 填进\n□ + □ = □ + □，\n使等式成立。\n该怎么填？",
+{ lv:3, tag:"等式 · 有序分组", q:"把 1、2、3、4 填进\n□ + □ = □ + □，\n使等式成立。\n该怎么填？",
     hint:"两边要一样大。试试把最大的和最小的放在一起。",
     a:"1+4 = 2+3", why:"1+4=5，2+3=5。秘诀是“大配小”：最大的配最小的，剩下的两个配一起，这样两边才相等。" },
 
-  { lv:3, tag:"开放题 · 剪角", q:"一个正方形，\n剪掉一个角以后，\n还剩几个角？",
-    hint:"这条线可以从顶点剪到顶点，也可以只剪到边上。多试几次。",
-    a:"可能是 3 个、4 个或 5 个", why:"沿对角线剪：剩 3 个角；从一个顶点剪到对边的中间：剩 4 个角；只剪掉角上的一小块：剩 5 个角。三种都对，关键是让孩子动手剪、再解释。" },
+  { lv:2, tag:"数图形 · 正方形", q:"下图里一共有多少个正方形？",
+    hint:"小的 4 个，还有一个大的。",
+    a:"5 个", why:"4 个小正方形 + 1 个大正方形 = 5 个。",
+    svg:'<svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><rect x="70" y="35" width="160" height="160" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.4"/><line x1="150" y1="35" x2="150" y2="195" stroke="#3B322B" stroke-width="2.4"/><line x1="70" y1="115" x2="230" y2="115" stroke="#3B322B" stroke-width="2.4"/></svg>' },
 
-  { lv:3, tag:"排队 · 夹在中间", q:"12 个小朋友排队。\n小明从前数第 5，\n小红从后数第 4。\n小明和小红之间有几人？",
+{ lv:3, tag:"排队 · 夹在中间", q:"12 个小朋友排队。\n小明从前数第 5，\n小红从后数第 4。\n小明和小红之间有几人？",
     hint:"先算小红从前面数是第几。",
     a:"3 人", why:"小红从前数是 12-4+1=9。小明第 5、小红第 9，中间的 6、7、8 号就是 3 人。也可以 12-5-4=3。" },
 
-  { lv:3, tag:"日期", q:"今天是 11 月 19 日。\n再过 12 天是几月几日？",
-    hint:"11 月一共有 30 天。19 加 12 超过 30 了吗？",
-    a:"12 月 1 日", why:"19+12=31，11 月只有 30 天，所以第 31 天就是 12 月 1 日。跨月时先看这个月还剩几天。" },
+  { lv:3, tag:"数阵 · 三角形", q:"把 1、2、3、4、5、6 分别填进圆圈，使三角形每条边上三个数的和都相等。每条边的和最小是几？",
+    hint:"先把最小的三个数放在三个顶点试试。",
+    a:"9", why:"三个顶点放 1、2、3，边上放 6、4、5，每条边都是 9。顶点和越小，每边的和就越小：1+2+3=6，(21+6)÷3=9。",
+    svg:'<svg viewBox="0 0 340 280" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><path d="M170 40 L60 220 L280 220 Z" fill="none" stroke="#3B322B" stroke-width="2" opacity=".5"/><circle cx="170" cy="40" r="21" fill="#FDFAF2" stroke="#C25A3A" stroke-width="2.4" stroke-dasharray="6 5"/><circle cx="60" cy="220" r="21" fill="#FDFAF2" stroke="#C25A3A" stroke-width="2.4" stroke-dasharray="6 5"/><circle cx="280" cy="220" r="21" fill="#FDFAF2" stroke="#C25A3A" stroke-width="2.4" stroke-dasharray="6 5"/><circle cx="115" cy="130" r="21" fill="#FDFAF2" stroke="#C25A3A" stroke-width="2.4" stroke-dasharray="6 5"/><circle cx="225" cy="130" r="21" fill="#FDFAF2" stroke="#C25A3A" stroke-width="2.4" stroke-dasharray="6 5"/><circle cx="170" cy="220" r="21" fill="#FDFAF2" stroke="#C25A3A" stroke-width="2.4" stroke-dasharray="6 5"/><text x="170" y="262" font-size="14" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">1 ~ 6 各用一次</text></svg>' },
 
-  { lv:3, tag:"逆向 · 凑数", q:"□ + □ = 9，\n两个加数相差 1。\n这两个数是几和几？",
+{ lv:3, tag:"逆向 · 凑数", q:"□ + □ = 9，\n两个加数相差 1。\n这两个数是几和几？",
     hint:"两个数差不多大，先想 9 的一半是多少。",
     a:"4 和 5", why:"9 分成两个差不多的数，就是 4 和 5，相差正好 1。也可以试：4+5=9，5-4=1，两个条件都满足。" },
 
-  { lv:3, tag:"逻辑 · 排除", q:"小明、小红、小刚三人赛跑。\n小明不是第一名，\n小红既不是第一名也不是最后一名。\n谁是第一名？",
-    hint:"先定小红：她只能是第几名？",
-    a:"小刚", why:"小红不是第一也不是最后，只能是第二。小明不是第一，那只能是第三。剩下的第一就是小刚。" },
+  { lv:3, tag:"数阵 · 十字", q:"把 1、2、3、4、5 填进五个圆圈，使横着三个数、竖着三个数相加都等于 9。中间填几？",
+    hint:"五个数的总和是 15，横竖各算一次是 18，多出来的 3 是哪来的？",
+    a:"中间填 3", why:"1+2+3+4+5=15，9+9=18，多出的 3 正是中间那个数（它被数了两遍）。",
+    svg:'<svg viewBox="0 0 360 250" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><g fill="#FDFAF2" stroke="#C25A3A" stroke-width="2.4" stroke-dasharray="6 5"><circle cx="180" cy="50" r="21"/><circle cx="180" cy="120" r="21"/><circle cx="110" cy="120" r="21"/><circle cx="250" cy="120" r="21"/><circle cx="180" cy="190" r="21"/></g><text x="180" y="235" font-size="14" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">横竖都要等于 9</text></svg>' },
 
-  { lv:3, tag:"综合 · 楼梯进阶", q:"小明从 1 楼走到 4 楼用了 3 分钟。\n照这样的速度，\n他从 1 楼走到 7 楼要几分钟？",
+{ lv:3, tag:"综合 · 楼梯进阶", q:"小明从 1 楼走到 4 楼用了 3 分钟。\n照这样的速度，\n他从 1 楼走到 7 楼要几分钟？",
     hint:"先算每层用几分钟，再数 1 楼到 7 楼有几层。",
     a:"6 分钟", why:"1 到 4 楼走 3 层，用 3 分钟，每层 1 分钟。1 到 7 楼走 6 层，所以 6 分钟。这类题永远先算“层数”。" },
 
-  { lv:3, hard:true, tag:"握手问题", q:"4 个小朋友见面，\n每两个人都要握一次手。\n一共要握几次手？",
-    hint:"先让第一个人和其他三人各握一次，再让第二个人和剩下的人握……",
-    a:"6 次", why:"3+2+1=6。按顺序数：第1人和后3人握3次，第2人和后2人握2次，第3人和最后1人握1次，第4人已经都握过了。关键是“不重复”。" },
+  { lv:3, tag:"幻方 · 九宫格", q:"把 1~9 填进九宫格，使每行、每列、每条对角线三个数相加都等于 15。中间那格填几？",
+    hint:"1 到 9 一共 45，平均分给三行，每行就是 15。",
+    a:"中间填 5", why:"1~9 的总和是 45，三行平均每行 15。中间的数在四条线上各算一次，只有 5 能胜任。一组填法：8 1 6 / 3 5 7 / 4 9 2。",
+    svg:'<svg viewBox="0 0 360 250" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><g stroke="#3B322B" stroke-width="2" fill="#FDFAF2"><rect x="80" y="40" width="52" height="52" fill="#FDFAF2"/><rect x="132" y="40" width="52" height="52" fill="#FDFAF2"/><rect x="184" y="40" width="52" height="52" fill="#FDFAF2"/><rect x="80" y="92" width="52" height="52" fill="#FDFAF2"/><rect x="132" y="92" width="52" height="52" fill="#FFF0E6"/><rect x="184" y="92" width="52" height="52" fill="#FDFAF2"/><rect x="80" y="144" width="52" height="52" fill="#FDFAF2"/><rect x="132" y="144" width="52" height="52" fill="#FDFAF2"/><rect x="184" y="144" width="52" height="52" fill="#FDFAF2"/></g><text x="218" y="235" font-size="13" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">每行、每列、每条对角线都是 15</text></svg>' },
 
-  { lv:3, hard:true, tag:"计数 · 路线", q:"从家到学校有 2 条路，\n从学校到公园有 3 条路。\n从家经过学校到公园，\n一共有几种走法？",
+{ lv:3, hard:true, tag:"计数 · 路线", q:"从家到学校有 2 条路，\n从学校到公园有 3 条路。\n从家经过学校到公园，\n一共有几种走法？",
     hint:"把 2 条路叫甲、乙，3 条路叫 1、2、3，一条一条列出来。",
     a:"6 种", why:"甲1、甲2、甲3、乙1、乙2、乙3，一共 6 种。这是乘法原理的雏形，一年级用“列举”做，不用背公式。" },
 
-  { lv:3, hard:true, tag:"年龄 · 差不变", q:"爸爸今年 32 岁，小明 7 岁。\n当小明 12 岁时，\n爸爸多少岁？",
-    hint:"两个人一起长，年龄差永远不变。先算差几岁。",
-    a:"37 岁", why:"32-7=25，爸爸永远比小明大 25 岁。小明 12 岁时，爸爸 12+25=37 岁。" },
+  { lv:2, tag:"找规律 · 周期", q:"图形按 △、○、□、△、○、□…… 的顺序排下去。第 11 个是什么图形？",
+    hint:"3 个一组，先数到第 9 个是几组？",
+    a:"○", why:"3 个一组，第 9 个是第 3 组的最后一个（□）；第 10 个是 △，第 11 个是 ○。",
+    svg:'<svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><path d="M60 60 L82 96 L38 96 Z" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><circle cx="140" cy="78" r="22" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><rect x="196" y="56" width="44" height="44" rx="3" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><path d="M280 60 L302 96 L258 96 Z" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.6"/><text x="320" y="86" font-size="22" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">…</text><text x="175" y="140" font-size="14" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">每 3 个一组</text></svg>' },
 
-  { lv:3, hard:true, tag:"等量代换 · 三级", q:"1 个西瓜换 2 个菠萝，\n1 个菠萝换 3 个苹果，\n1 个苹果换 2 个桃子。\n1 个西瓜能换几个桃子？",
+{ lv:3, hard:true, tag:"等量代换 · 三级", q:"1 个西瓜换 2 个菠萝，\n1 个菠萝换 3 个苹果，\n1 个苹果换 2 个桃子。\n1 个西瓜能换几个桃子？",
     hint:"一层一层换：先把西瓜换成菠萝，再把菠萝换成苹果，最后换成桃子。",
     a:"12 个", why:"1 个菠萝 = 3 个苹果 = 6 个桃子；西瓜 = 2 个菠萝 = 12 个桃子。每换一层，数量就乘一次。" },
 
-  { lv:3, hard:true, tag:"重叠问题", q:"跳绳的有 10 人，\n踢毽子的有 8 人，\n其中 3 人两样都参加。\n一共有多少人参加？",
-    hint:"那 3 个人被数了两遍，要减掉一次。",
-    a:"15 人", why:"10+8=18，但 3 个人被算了两次，18-3=15。可以画两个相交的圈，中间那块就是 3 人。" },
+  { lv:2, tag:"找规律 · 周期", q:"按 “●、●、○” 三个一组重复排列。第 10 个是什么？",
+    hint:"第 9 个刚好是第 3 组的最后一个。",
+    a:"●", why:"3 个一组，第 9 个是最后一个 ○；第 10 个又从 ● 开始。",
+    svg:'<svg viewBox="0 0 360 150" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><text x="50" y="80" font-size="30" text-anchor="middle" fill="#C25A3A" font-weight="400" font-family="inherit">●</text><text x="82" y="80" font-size="30" text-anchor="middle" fill="#C25A3A" font-weight="400" font-family="inherit">●</text><text x="114" y="80" font-size="30" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">○</text><text x="146" y="80" font-size="30" text-anchor="middle" fill="#C25A3A" font-weight="400" font-family="inherit">●</text><text x="178" y="80" font-size="30" text-anchor="middle" fill="#C25A3A" font-weight="400" font-family="inherit">●</text><text x="210" y="80" font-size="30" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">○</text><text x="242" y="80" font-size="30" text-anchor="middle" fill="#C25A3A" font-weight="400" font-family="inherit">●</text><text x="274" y="80" font-size="30" text-anchor="middle" fill="#C25A3A" font-weight="400" font-family="inherit">●</text><text x="306" y="80" font-size="30" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">○</text><text x="180" y="130" font-size="14" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">红红黄，红红黄……</text></svg>' },
 
-  { lv:3, hard:true, tag:"数字谜", q:"□ + △ = 9\n□ - △ = 1\n□ 和 △ 各是几？",
+{ lv:3, hard:true, tag:"数字谜", q:"□ + △ = 9\n□ - △ = 1\n□ 和 △ 各是几？",
     hint:"两个数相加是 9、相差是 1，它们应该挨得很近。",
     a:"□ = 5，△ = 4", why:"5+4=9，5-4=1。也可以想：把 9 分成两个相邻的数，就是 4 和 5。" },
 
-  { lv:3, hard:true, tag:"图形计数 · 进阶", q:"一个正方形，\n横竖各画一条线，\n分成 4 个小正方形。\n图里一共有几个正方形？",
-    hint:"别忘了外面那个“大”的。",
-    a:"5 个", why:"4 个小正方形 + 1 个大正方形 = 5 个。数图形永远先数小的，再数合起来的。" },
+  { lv:2, tag:"小棒 · 分享边", q:"摆 2 个正方形，最少要用几根同样长的小棒？",
+    hint:"两个正方形能不能共用一条边？",
+    a:"7 根", why:"分开摆要 8 根；让它们共用一条边，就省下 1 根，只要 7 根。",
+    svg:'<svg viewBox="0 0 330 190" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><g fill="none" stroke="#3B322B" stroke-width="3"><rect x="70" y="40" width="80" height="80"/><rect x="150" y="40" width="80" height="80"/></g><text x="150" y="165" font-size="14" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">两个正方形共用一条边</text></svg>' },
 
-  { lv:3, hard:true, tag:"鸡兔同笼 · 进阶", q:"笼子里有鸡和兔共 8 只，\n一共 22 条腿。\n鸡、兔各有几只？",
+{ lv:3, hard:true, tag:"鸡兔同笼 · 进阶", q:"笼子里有鸡和兔共 8 只，\n一共 22 条腿。\n鸡、兔各有几只？",
     hint:"假设 8 只全是鸡，会有几条腿？比 22 少几条？",
     a:"兔 3 只，鸡 5 只", why:"全当鸡：8×2=16 条腿，少了 6 条。每把 1 只鸡换成兔，多 2 条腿，所以要换 3 只。兔 3、鸡 5。" },
 
-  { lv:3, hard:true, tag:"方阵", q:"小朋友排成一个正方形队伍。\n小明从前数第 2，从后数第 3，\n从左数第 2，从右数第 3。\n这个方阵一共有多少人？",
-    hint:"先算这一列有几人：前 2 后 3，中间的小明算了两次。",
-    a:"16 人", why:"每列 2+3-1=4 人，每行也是 2+3-1=4 人，所以是 4 行 4 列，4×4=16 人。" },
+  { lv:3, tag:"开放题 · 剪角", q:"一个正方形，剪掉一个角以后，还剩几个角？",
+    hint:"剪的位置不同，结果不一样，多试几种。",
+    a:"可能是 3 个、4 个或 5 个", why:"沿对角线剪：剩 3 个角；从一个顶点剪到对边：剩 4 个；只剪掉角上一小块：剩 5 个。三种都对。",
+    svg:'<svg viewBox="0 0 330 245" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><rect x="70" y="30" width="160" height="160" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.4"/><path d="M70 30 L120 30 L70 80 Z" fill="#FFF0E6" stroke="#C25A3A" stroke-width="2" stroke-dasharray="6 4"/><text x="150" y="225" font-size="14" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">虚线是剪的位置</text></svg>' },
 
-  { lv:3, hard:true, tag:"还原 · 一半多一", q:"一筐苹果，\n第一次卖出全部的一半多 1 个，\n第二次卖出剩下的一半多 1 个，\n最后还剩 1 个。\n原来有多少个？",
+{ lv:3, hard:true, tag:"还原 · 一半多一", q:"一筐苹果，\n第一次卖出全部的一半多 1 个，\n第二次卖出剩下的一半多 1 个，\n最后还剩 1 个。\n原来有多少个？",
     hint:"倒着推：第二次卖之前有几个？先加回多卖的 1 个，再乘 2。",
     a:"10 个", why:"倒推：(1+1)×2=4 个（第二次卖之前）；(4+1)×2=10 个（第一次卖之前）。“一半多1”倒推时就是“先加1，再乘2”。" },
 
-  { lv:3, hard:true, tag:"逻辑 · 真假话", q:"三个小朋友中只有一个人说了真话。\n小明说：“小红考了 100 分。”\n小红说：“我没有考 100 分。”\n小刚说：“我考了 100 分。”\n谁考了 100 分？",
-    hint:"小明和小红的话正好相反，两人里必有一个真。那第三个人呢？",
-    a:"小红", why:"小明和小红的话相反，必有一真一假。既然只有一句真话，小刚说的必是假话（他没考100）。若小红考了100：小明真、小红假、小刚假，正好一句真。所以是小红。" },
+  { lv:3, tag:"小棒 · 开放题", q:"用 6 根同样长的小棒，最多能摆出几个一样大的三角形？",
+    hint:"在桌面上只能摆 2 个。试试搭起来，离开桌面呢？",
+    a:"4 个（搭成立体的）", why:"平面上 6 根只能摆 2 个三角形。把 3 根摆成底面三角形、另外 3 根从三个顶点收成一个尖，就是三棱锥，有 4 个面。",
+    svg:'<svg viewBox="0 0 330 245" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><path d="M150 30 L60 180 L240 180 Z" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.4"/><path d="M150 30 L150 180 M60 180 L150 180 M240 180 L150 180" stroke="#C25A3A" stroke-width="1.6" stroke-dasharray="5 4"/><text x="150" y="222" font-size="14" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">6 根小棒，能摆几个三角形？</text></svg>' },
 
-  { lv:3, hard:true, tag:"数阵 · 十字", q:"把 1、2、3、4、5 填进十字形，\n使横着三个数、竖着三个数\n相加都等于 9。\n中间填几？",
+{ lv:3, hard:true, tag:"数阵 · 十字", q:"把 1、2、3、4、5 填进十字形，\n使横着三个数、竖着三个数\n相加都等于 9。\n中间填几？",
     hint:"五个数加起来是 15，横竖各算一次是 18，多出来的 3 是哪来的？",
     a:"中间填 3", why:"1+2+3+4+5=15，横竖两条线一共 9+9=18，多出的 3 正是中间那个数（它被数了两遍）。横填 2、4，竖填 1、5。" },
 
-  { lv:3, hard:true, tag:"周期 · 数列", q:"一列数：1、2、3、1、2、3……\n第 20 个数是几？\n前 6 个数的和是多少？",
-    hint:"三个数一组，第 18 个正好是第几组的最后一个？",
-    a:"第 20 个是 2；前 6 个数的和是 12", why:"每 3 个一组，18 个正好 6 组。第 19 个是 1，第 20 个是 2。前 6 个数是 1、2、3、1、2、3，和为 12。" },
+  { lv:2, tag:"等量代换", q:"1 个西瓜换 3 个菠萝，1 个菠萝换 2 个苹果。1 个西瓜能换几个苹果？",
+    hint:"先把西瓜换成菠萝，再把每个菠萝换成苹果。",
+    a:"6 个", why:"3 个菠萝，每个值 2 个苹果：2+2+2=6。",
+    svg:'<svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><text x="90" y="80" font-size="40" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">🍉</text><text x="150" y="80" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">=</text><text x="205" y="80" font-size="30" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">🍍🍍🍍</text><text x="160" y="130" font-size="15" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">1 个菠萝 = 2 个苹果</text></svg>' },
 
-  { lv:3, hard:true, tag:"周期 · 跨年", q:"12 月 20 日是星期五。\n明年 1 月 1 日是星期几？",
+{ lv:3, hard:true, tag:"周期 · 跨年", q:"12 月 20 日是星期五。\n明年 1 月 1 日是星期几？",
     hint:"先算从 12 月 20 日到 1 月 1 日有几天（12 月有 31 天）。",
     a:"星期三", why:"20 日到 31 日是 11 天，再过 1 天就是 1 月 1 日，共 12 天。12÷7 余 5，从星期五往后数 5 天：六、日、一、二、三。" },
 
-  { lv:3, hard:true, tag:"组数 · 最大最小", q:"用 0、1、2 三张数字卡片\n摆一个三位数。\n最大是几？最小是几？",
-    hint:"最小的时候，0 不能放在百位。",
-    a:"最大 210，最小 102", why:"最大的三位数要把大数放高位：210。最小的三位数百位不能是 0，只能是 1，后面排 0 和 2：102。" },
+  { lv:2, tag:"图形算式", q:"三个 ○ 相加等于 9。○ + □ = 7。□ 代表几？",
+    hint:"先算一个 ○ 是几。",
+    a:"□ = 4", why:"9 分成三个一样的数：3+3+3=9，所以 ○ 是 3；3+□=7，□=4。",
+    svg:'<svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><text x="60" y="70" font-size="30" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">○</text><text x="105" y="70" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">+</text><text x="150" y="70" font-size="30" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">○</text><text x="195" y="70" font-size="26" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">+</text><text x="240" y="70" font-size="30" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">○</text><text x="285" y="70" font-size="26" text-anchor="middle" fill="#C25A3A" font-weight="700" font-family="inherit">=9</text><text x="180" y="130" font-size="22" text-anchor="middle" fill="#3B322B" font-weight="400" font-family="inherit">○ + □ = 7</text></svg>' },
 
-  { lv:3, hard:true, tag:"幻方 · 九宫格", q:"把 1~9 填进九宫格，\n使每行、每列、每条对角线\n三个数相加都等于 15。\n中间那格填几？",
+{ lv:3, hard:true, tag:"幻方 · 九宫格", q:"把 1~9 填进九宫格，\n使每行、每列、每条对角线\n三个数相加都等于 15。\n中间那格填几？",
     hint:"1 到 9 一共 45，平均分给三行，每行就是 15。中间那个数最特殊。",
     a:"中间填 5", why:"1~9 的总和是 45，三行平均每行 15。中间的数要在四条线上各算一次，只有 5 能胜任。填法：8 1 6 / 3 5 7 / 4 9 2。" },
 
-  { lv:3, hard:true, tag:"分组 · 周期", q:"把 1 到 30 号卡片，\n每 3 张分成一组。\n第 30 号卡片在第几组、第几个？",
-    hint:"3 张一组，30 张正好几组？",
-    a:"第 10 组第 3 个", why:"30÷3=10，正好 10 组，30 号是最后一组的最后一个。" },
+  { lv:2, tag:"数图形 · 长方形", q:"一个长方形，从中间竖着画一条线，分成两个小长方形。图里一共有几个长方形？",
+    hint:"两个小的，加上原来那个大的。",
+    a:"3 个", why:"2 个小长方形 + 1 个大长方形 = 3 个。",
+    svg:'<svg viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><rect x="60" y="40" width="200" height="100" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.4"/><line x1="160" y1="40" x2="160" y2="140" stroke="#3B322B" stroke-width="2.4"/><text x="160" y="180" font-size="14" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">小的数完，再数大的</text></svg>' },
 
-  { lv:3, hard:true, tag:"还原 · 剪绳", q:"一根绳子，\n第一次剪去一半，\n第二次剪去剩下的一半，\n还剩 2 米。\n原来有几米？",
+{ lv:3, hard:true, tag:"还原 · 剪绳", q:"一根绳子，\n第一次剪去一半，\n第二次剪去剩下的一半，\n还剩 2 米。\n原来有几米？",
     hint:"倒着推：剩 2 米，剪之前是几米？",
     a:"8 米", why:"2×2=4（第二次剪之前），4×2=8（原来）。每剪一次一半，倒推就乘一次 2。" },
 
-  { lv:3, hard:true, tag:"小棒 · 开放题", q:"用 6 根同样长的小棒，\n最多能摆出几个一样大的三角形？",
-    hint:"在桌面上只能摆 2 个。试试把它们搭起来，离开桌面呢？",
-    a:"4 个（搭成立体的）", why:"平面上 6 根只能摆 2 个三角形。把 3 根摆成底面三角形、另外 3 根从三个顶点往上收成一个尖，就是一个三棱锥，有 4 个面，也就是 4 个三角形。这是一道动手题，让孩子自己试。" }
-
+  { lv:3, tag:"数图形 · 三角形", q:"从一个三角形的顶点向底边画两条线，把它分成三个小三角形。图里一共有几个三角形？",
+    hint:"先数单个的，再数两个拼起来的，最后数三个拼起来的。",
+    a:"6 个", why:"3 个小的 + 2 个两个拼成的 + 1 个三个拼成的 = 3+2+1 = 6 个。",
+    svg:'<svg viewBox="0 0 340 250" xmlns="http://www.w3.org/2000/svg" style="max-width:330px;display:block;margin:8px auto"><path d="M170 30 L50 190 L290 190 Z" fill="#FDFAF2" stroke="#3B322B" stroke-width="2.4"/><path d="M170 30 L130 190 M170 30 L210 190" stroke="#3B322B" stroke-width="2.4"/><text x="170" y="232" font-size="14" text-anchor="middle" fill="#8A7B68" font-weight="400" font-family="inherit">一共几个三角形？</text></svg>' }
 ];
 
 /* ---------------- 日期与索引 ---------------- */
@@ -412,7 +435,7 @@ card.innerHTML =
   '<span class="tag">' + cur.tag + '</span>' +
   '<span class="lv">' + "★★★".slice(0, cur.lv) + "☆☆☆".slice(0, 3 - cur.lv) + '</span>' +
   (cur.hard ? '<span class="hard">竞赛</span>' : '') +
-  '<div class="q">' + cur.q.replace(/\n/g,"<br>") + '</div>' +
+  '<div class="q">' + cur.q.replace(/\n/g,"<br>") + '</div>' + (cur.svg || '') +
   '<div class="acts">' +
     '<button class="ghost" id="b-hint" type="button">给点提示</button>' +
     '<button class="primary" id="b-ans" type="button">看答案</button>' +
